@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class CurrencyExchangeEntity
 {
@@ -15,4 +14,13 @@ public class CurrencyExchangeEntity
     private String from;
     private String to;
     private BigDecimal conversionMultiple;
+    private String environment;
+
+    public CurrencyExchangeEntity(Long id, String from, String to, BigDecimal conversionMultiple)
+    {
+        this.id = id;
+        this.from = from;
+        this.to = to;
+        this.conversionMultiple = conversionMultiple;
+    }
 }
