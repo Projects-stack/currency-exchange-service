@@ -21,7 +21,7 @@ public class CurrencyExchangeController
     @GetMapping("/from/{from}/to/{to}")
     public CurrencyExchangeEntity retrieveExchangeValue(@PathVariable String from, @PathVariable String to)
     {
-        CurrencyExchangeEntity currencyExchangeEntity = new CurrencyExchangeEntity(1000L, "USD", "INR", BigDecimal.valueOf(50));
+        CurrencyExchangeEntity currencyExchangeEntity = new CurrencyExchangeEntity("USD", "INR", BigDecimal.valueOf(50));
         String port = environment.getProperty(GlobalConstants.LOCAL_SERVER_PORT);
         currencyExchangeEntity.setEnvironment(port);
         return currencyExchangeEntity;

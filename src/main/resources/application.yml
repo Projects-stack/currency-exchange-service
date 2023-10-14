@@ -1,9 +1,25 @@
 
 spring:
+  # naming
   application:
     name: "currency-exchange"
+
+  # config-server
   config:
     import: "optional:configserver:http://localhost:8888"
 
+  # h2-db
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: "jdbc:h2:mem:testDB"
+
+  # spring-data-jpa
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+
+#server-port
 server:
   port: 8000
