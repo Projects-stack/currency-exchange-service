@@ -7,4 +7,9 @@ public class GlobalConstants
 
     // properties
     public static final String LOCAL_SERVER_PORT = "local.server.port";
+
+    private GlobalConstants()
+    {
+
+    }
 }
