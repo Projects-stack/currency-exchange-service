@@ -29,3 +29,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: "http://localhost:8761/eureka"
+
+# resilience4j retries
+resilience4j:
+  retry:
+    instances:
+      sampleApi:
+        maxRetryAttempts: 5
+        waitDuration: 1s
+        EnableExponentialBackoff: true
