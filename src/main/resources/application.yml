@@ -30,11 +30,29 @@ eureka:
     serviceUrl:
       defaultZone: "http://localhost:8761/eureka"
 
-# resilience4j retries
 resilience4j:
+  # retries
   retry:
     instances:
       sampleApi:
         maxRetryAttempts: 5
         waitDuration: 1s
         EnableExponentialBackoff: true
+
+  # failure threshold
+  circuitbreaker:
+    instances:
+      default:
+        failureRateThreshold: 90
+
+  # setting limit to controller endpoint
+  ratelimiter:
+    instances:
+      default:
+        limitForPeriod: 2
+        limitRefreshPeriod: 10s
+
+  bulkhead:
+    instances:
+      default:
+        maxConcurrentCalls: 10
